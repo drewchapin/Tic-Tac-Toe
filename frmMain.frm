@@ -1,364 +1,141 @@
 VERSION 5.00
 Begin VB.Form frmMain 
-   Appearance      =   0  'Flat
    BackColor       =   &H00404040&
-   BorderStyle     =   0  'None
-   Caption         =   "Tic Tac Toe"
-   ClientHeight    =   5820
-   ClientLeft      =   0
-   ClientTop       =   0
-   ClientWidth     =   7320
-   ControlBox      =   0   'False
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Tic-Tac-Toe v3"
+   ClientHeight    =   6075
+   ClientLeft      =   45
+   ClientTop       =   330
+   ClientWidth     =   7080
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   NegotiateMenus  =   0   'False
-   ScaleHeight     =   5820
-   ScaleWidth      =   7320
+   ScaleHeight     =   6075
+   ScaleWidth      =   7080
    StartUpPosition =   3  'Windows Default
-   Begin VB.PictureBox Toolbar 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H80000008&
-      Height          =   390
-      Left            =   10
-      ScaleHeight     =   390
-      ScaleWidth      =   7290
-      TabIndex        =   4
-      Top             =   10
-      Width           =   7290
-   End
-   Begin VB.PictureBox NullPic 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Left            =   2160
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
+   Begin VB.VScrollBar vsbLevel 
+      Height          =   1695
+      Left            =   4800
+      Max             =   0
+      Min             =   2
       TabIndex        =   2
-      Top             =   3240
-      Visible         =   0   'False
-      Width           =   1620
+      Top             =   3000
+      Width           =   255
    End
-   Begin VB.PictureBox OPic 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Left            =   2880
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   495
+      Left            =   4800
       TabIndex        =   1
-      Top             =   1560
-      Visible         =   0   'False
-      Width           =   1620
-   End
-   Begin VB.PictureBox XPic 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Left            =   1080
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   0
-      Top             =   1560
-      Visible         =   0   'False
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   7
-      Left            =   1920
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   11
-      Top             =   3960
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   6
-      Left            =   240
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   10
-      Top             =   3960
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   5
-      Left            =   3600
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   9
-      Top             =   2280
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   4
-      Left            =   1920
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   8
-      Top             =   2280
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   3
-      Left            =   240
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   7
-      Top             =   2280
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   2
-      Left            =   3600
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   6
-      Top             =   600
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   1
-      Left            =   1920
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   5
-      Top             =   600
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   0
-      Left            =   240
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   3
-      Top             =   600
-      Width           =   1620
-   End
-   Begin VB.PictureBox Box 
-      Appearance      =   0  'Flat
-      AutoSize        =   -1  'True
-      BackColor       =   &H00404040&
-      DrawWidth       =   10
-      ForeColor       =   &H80000008&
-      Height          =   1620
-      Index           =   8
-      Left            =   3600
-      ScaleHeight     =   1590
-      ScaleWidth      =   1590
-      TabIndex        =   12
-      Top             =   3960
-      Width           =   1620
-   End
-   Begin VB.Shape ShBorder 
-      Height          =   615
-      Left            =   5520
-      Top             =   4320
+      Top             =   1680
       Width           =   1215
    End
-   Begin VB.Label lbButton 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H00404040&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "&Clear Scores"
-      ForeColor       =   &H00FFFFFF&
+   Begin VB.PictureBox TitleBar 
+      BackColor       =   &H00FFFFFF&
+      BorderStyle     =   0  'None
       Height          =   255
-      Index           =   3
-      Left            =   5520
-      TabIndex        =   23
-      Top             =   1800
-      Width           =   1635
+      Left            =   120
+      ScaleHeight     =   255
+      ScaleWidth      =   6855
+      TabIndex        =   0
+      Top             =   120
+      Width           =   6855
+   End
+   Begin VB.Line Line4 
+      X1              =   2400
+      X2              =   2400
+      Y1              =   4560
+      Y2              =   840
+   End
+   Begin VB.Line Line3 
+      X1              =   1320
+      X2              =   1320
+      Y1              =   4560
+      Y2              =   840
+   End
+   Begin VB.Line Line2 
+      X1              =   240
+      X2              =   3480
+      Y1              =   3360
+      Y2              =   3360
    End
    Begin VB.Line Line1 
-      X1              =   5460
-      X2              =   7200
-      Y1              =   2880
-      Y2              =   2880
+      X1              =   240
+      X2              =   3480
+      Y1              =   2040
+      Y2              =   2040
    End
-   Begin VB.Label Label3 
-      Alignment       =   1  'Right Justify
-      BackStyle       =   0  'Transparent
-      Caption         =   "Ties:"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Left            =   5520
-      TabIndex        =   22
-      Top             =   1080
-      Width           =   735
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   9
+      Left            =   2520
+      Stretch         =   -1  'True
+      Top             =   3480
+      Width           =   885
    End
-   Begin VB.Label Label2 
-      Alignment       =   1  'Right Justify
-      BackStyle       =   0  'Transparent
-      Caption         =   "Player:"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Left            =   5520
-      TabIndex        =   21
-      Top             =   840
-      Width           =   735
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   8
+      Left            =   1440
+      Stretch         =   -1  'True
+      Top             =   3480
+      Width           =   885
    End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackStyle       =   0  'Transparent
-      Caption         =   "Computer:"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Left            =   5520
-      TabIndex        =   20
-      Top             =   600
-      Width           =   735
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   7
+      Left            =   360
+      Stretch         =   -1  'True
+      Top             =   3480
+      Width           =   885
    End
-   Begin VB.Label lbButton 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H00404040&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "&Options"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Index           =   2
-      Left            =   5520
-      TabIndex        =   19
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   6
+      Left            =   2520
+      Stretch         =   -1  'True
       Top             =   2160
-      Width           =   1635
+      Width           =   885
    End
-   Begin VB.Label Status 
-      BackStyle       =   0  'Transparent
-      Caption         =   "Label1"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   975
-      Left            =   5520
-      TabIndex        =   18
-      Top             =   3000
-      Width           =   1575
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   5
+      Left            =   1440
+      Stretch         =   -1  'True
+      Top             =   2160
+      Width           =   885
    End
-   Begin VB.Label lbButton 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H00404040&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "&Exit"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Index           =   1
-      Left            =   5520
-      TabIndex        =   17
-      Top             =   2520
-      Width           =   1635
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   4
+      Left            =   360
+      Stretch         =   -1  'True
+      Top             =   2160
+      Width           =   885
    End
-   Begin VB.Label lbButton 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H00404040&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "&New Game"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Index           =   0
-      Left            =   5520
-      TabIndex        =   16
-      Top             =   1440
-      Width           =   1635
-   End
-   Begin VB.Label Ties 
-      BackStyle       =   0  'Transparent
-      Caption         =   "Label1"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Left            =   6360
-      TabIndex        =   15
-      Top             =   1080
-      Width           =   615
-   End
-   Begin VB.Label Player 
-      BackStyle       =   0  'Transparent
-      Caption         =   "Label1"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Left            =   6360
-      TabIndex        =   14
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   3
+      Left            =   2520
+      Stretch         =   -1  'True
       Top             =   840
-      Width           =   615
+      Width           =   885
    End
-   Begin VB.Label Computer 
-      BackStyle       =   0  'Transparent
-      Caption         =   "Label1"
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Left            =   6360
-      TabIndex        =   13
-      Top             =   600
-      Width           =   615
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   2
+      Left            =   1440
+      Stretch         =   -1  'True
+      Top             =   840
+      Width           =   885
    End
-   Begin VB.Shape Shape2 
-      Height          =   3540
-      Left            =   5460
-      Top             =   480
-      Width           =   1755
-   End
-   Begin VB.Shape Shape1 
-      Height          =   5220
-      Left            =   120
-      Top             =   480
-      Width           =   5220
+   Begin VB.Image Box 
+      Height          =   1035
+      Index           =   1
+      Left            =   360
+      Stretch         =   -1  'True
+      Top             =   840
+      Width           =   885
    End
 End
 Attribute VB_Name = "frmMain"
@@ -366,78 +143,196 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Box_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
- If Button = vbLeftButton Then
-  If AllowTurn Then
-   Select Case Box(Index).Picture
-    Case XPic
-     Status = "Space is already occupied by an X"
-     DoEvents
-    Case OPic
-     Status = "Space is already occupied by an O"
-     DoEvents
-    Case NullPic
-     Box(Index) = XPic
-     Status = ""
-     DoEvents
-     MakeMove
-   End Select
-  Else
-   Status = "The game is over. You must start a new game."
-  End If
+Option Explicit
+
+Private BoxInfo(1 To 9) As Long
+Private Player As Integer
+Private Computer As Integer
+Private Level As Integer
+
+Private Sub UpdateBox(ByVal Index As Integer)
+ If BoxInfo(Index) = 1 Then
+  Box(Index).Picture = LoadPicture("X.BMP")
+ ElseIf BoxInfo(Index) = 2 Then
+  Box(Index).Picture = LoadPicture("O.BMP")
+ Else
+  Box(Index).Picture = LoadPicture("")
  End If
 End Sub
 
-Private Sub Form_Unload(Cancel As Integer)
- SaveSetting App.Title, "Form", "Left", frmMain.Left
- SaveSetting App.Title, "Form", "Top", frmMain.Top
+Private Sub Box_Click(Index As Integer)
+ If BoxInfo(Index) = 0 Then
+  BoxInfo(Index) = Player
+  Call UpdateBox(Index)
+  Call MakeMove
+ Else
+  MsgBox "This space is already occupied"
+ End If
 End Sub
 
-Private Sub lbButton_Click(Index As Integer)
- Select Case Index
-  Case 0: ClearGrid
-  Case 1: Unload Me
-  Case 2: frmOptions.Show 1, Me
-  Case 3: ClearScores
- End Select
-End Sub
-
-Private Sub lbButton_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
- lbButton(Index).BackColor = RGB(192, 192, 192)
- lbButton(Index).ForeColor = RGB(0, 0, 0)
-End Sub
-
-Private Sub lbButton_MouseUp(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
- lbButton(Index).BackColor = RGB(64, 64, 64)
- lbButton(Index).ForeColor = RGB(255, 255, 255)
- ReleaseCapture
+Private Sub Command1_Click()
+ Dim i As Integer
+ For i = 1 To 9
+  BoxInfo(i) = 0
+  Call UpdateBox(i)
+ Next i
 End Sub
 
 Private Sub Form_Load()
- GetBitmapSettings
- With Shborder
-  .Left = 0
-  .Top = 0
-  .Width = Width
-  .Height = Height
- End With
- Computer = "0"
- Player = "0"
- Ties = "0"
- Status = ""
- If Second(Time) Mod 2 = 0 Then
-  CompTurn = False
- Else
-  CompTurn = True
- End If
- ClearGrid
- frmMain.Left = GetSetting(App.Title, "Form", "Left", frmMain.Left)
- frmMain.Top = GetSetting(App.Title, "Form", "Top", frmMain.Top)
+ Dim i As Integer
+ For i = 1 To 9
+  BoxInfo(i) = 0
+ Call UpdateBox(i)
+ Next i
+ Player = 1
+ Computer = 2
+ Level = 0
+ vsbLevel = Level
 End Sub
 
-Private Sub Toolbar_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub TitleBar_MouseMove(Button As Integer, Shift As Integer, x As Single, Y As Single)
  If Button = vbLeftButton Then
-  ReleaseCapture
-  SendMessage Me.hwnd, WM_NCLBUTTONDOWN, 2, 1
+  Call ReleaseCapture
+  SendMessage Me.hwnd, WM_NCLBUTTONDOWN, HTCAPTION, 0&
  End If
 End Sub
+
+Private Sub vsbLevel_Change()
+ Level = vsbLevel.Value
+ Caption = Level
+End Sub
+
+Private Function CheckForWin() As Boolean
+ 
+ ' Horizontal
+ ' 123
+ ' 456
+ ' 789
+ ' Vertical
+ ' 147
+ ' 258
+ ' 369
+ ' Diagonal
+ ' 159
+ ' 753
+ 
+ If BoxInfo(1) = Player And BoxInfo(2) = Player And BoxInfo(3) = Player Or _
+    BoxInfo(4) = Player And BoxInfo(5) = Player And BoxInfo(6) = Player Or _
+    BoxInfo(7) = Player And BoxInfo(8) = Player And BoxInfo(9) = Player Or _
+    BoxInfo(1) = Player And BoxInfo(4) = Player And BoxInfo(7) = Player Or _
+    BoxInfo(2) = Player And BoxInfo(5) = Player And BoxInfo(8) = Player Or _
+    BoxInfo(3) = Player And BoxInfo(6) = Player And BoxInfo(9) = Player Or _
+    BoxInfo(1) = Player And BoxInfo(5) = Player And BoxInfo(9) = Player Or _
+    BoxInfo(3) = Player And BoxInfo(5) = Player And BoxInfo(7) = Player Then
+  
+  CheckForWin = True
+  MsgBox "you win"
+ 
+ ElseIf BoxInfo(1) = Computer And BoxInfo(2) = Computer And BoxInfo(3) = Computer Or _
+        BoxInfo(4) = Computer And BoxInfo(5) = Computer And BoxInfo(6) = Computer Or _
+        BoxInfo(7) = Computer And BoxInfo(8) = Computer And BoxInfo(9) = Computer Or _
+        BoxInfo(1) = Computer And BoxInfo(4) = Computer And BoxInfo(7) = Computer Or _
+        BoxInfo(2) = Computer And BoxInfo(5) = Computer And BoxInfo(8) = Computer Or _
+        BoxInfo(3) = Computer And BoxInfo(6) = Computer And BoxInfo(9) = Computer Or _
+        BoxInfo(1) = Computer And BoxInfo(5) = Computer And BoxInfo(9) = Computer Or _
+        BoxInfo(3) = Computer And BoxInfo(5) = Computer And BoxInfo(7) = Computer Then
+
+  CheckForWin = True
+  MsgBox "you lost"
+  
+ Else
+ 
+  CheckForWin = False
+ 
+ End If
+ 
+End Function
+
+Private Function RandomMove()
+ Dim Move As Integer
+ Dim Generated As Integer
+ 
+ Do
+  Generated = Generated + 1
+  If Generated < 9 Then
+   Randomize
+   Move = Rnd * 7 + 1
+  ElseIf Generated = 9 Then
+   Move = 1
+  ElseIf Generated > 9 Then
+   Move = Move + 1
+  End If
+ Loop Until Box(Move) = 0
+ 
+ RandomMove = Move
+End Function
+
+Private Sub MakeMove()
+ On Error GoTo errhandler
+ Dim Move As Integer
+ Dim Generated As Integer
+ 
+ If Not CheckForWin Then
+    
+  If Level < 1 Then
+   Move = RandomMove()
+  ' 2,3 are occupied and 1 is open
+  ElseIf Level >= 1 And BoxInfo(2) = Computer And BoxInfo(3) = Computer And BoxInfo(1) = 0 Then
+   Move = 1
+  ' 1,3 are occupied and 2 is open
+  ElseIf Level >= 1 And BoxInfo(1) = Computer And BoxInfo(3) = Computer And BoxInfo(2) = 0 Then
+   Move = 2
+  ' 1,2 are occupied and 3 is open
+  ElseIf Level >= 1 And BoxInfo(1) = Computer And BoxInfo(2) = Computer And BoxInfo(3) = 0 Then
+   Move = 3
+  ' 5,6 are occupied and 4 is open
+  ElseIf Level >= 1 And BoxInfo(5) = Computer And BoxInfo(6) = Computer And BoxInfo(4) = 0 Then
+   Move = 4
+  ' 4,6 are occupied and 5 is open
+  ElseIf Level >= 1 And BoxInfo(4) = Computer And BoxInfo(6) = Computer And BoxInfo(5) = 0 Then
+   Move = 5
+  ' 4,5 are occupied and 6 is open
+  ElseIf Level >= 1 And BoxInfo(4) = Computer And BoxInfo(5) = Computer And BoxInfo(6) = 0 Then
+   Move = 6
+  ' 8,9 are occupied and 7 is open
+  ElseIf Level >= 1 And BoxInfo(1) = Computer And BoxInfo(2) = Computer And BoxInfo(3) = 0 Then
+   Move = 7
+  ' 7,9 are occupied and 8 is open
+  ElseIf Level >= 1 And BoxInfo(7) = Computer And BoxInfo(9) = Computer And BoxInfo(8) = 0 Then
+   Move = 8
+  ' 7,8 are occupied and 9 is open
+  ElseIf Level >= 1 And BoxInfo(7) = Computer And BoxInfo(8) = Computer And BoxInfo(9) = 0 Then
+   Move = 9
+  ' 1,5 are occupied and 9 is open
+  ElseIf Level >= 1 And BoxInfo(1) = Computer And BoxInfo(5) = Computer And BoxInfo(9) = 0 Then
+   Move = 9
+  ' 1,9 are occupied and 5 is open
+  ElseIf Level >= 1 And BoxInfo(1) = Computer And BoxInfo(9) = Computer And BoxInfo(5) = 0 Then
+   Move = 5
+   ' 5,9 are occupied and 1 is open
+  ElseIf Level >= 1 And BoxInfo(5) = Computer And BoxInfo(9) = Computer And BoxInfo(1) = 0 Then
+   Move = 1
+  ' 3,5 are occupied and 7 is open
+  ElseIf Level >= 1 And BoxInfo(3) = Computer And BoxInfo(5) = Computer And BoxInfo(7) = 0 Then
+   Move = 7
+  ' 5,7 are occupied and 3 is open
+  ElseIf Level >= 1 And BoxInfo(5) = Computer And BoxInfo(7) = Computer And BoxInfo(3) = 0 Then
+   Move = 3
+   ' 3,7 are occupied and 5 is open
+  ElseIf Level >= 1 And BoxInfo(3) = Computer And BoxInfo(7) = Computer And BoxInfo(5) = 0 Then
+   Move = 5
+  Else
+   Move = RandomMove
+  End If
+  
+  BoxInfo(Move) = Computer
+  Call UpdateBox(Move)
+  Call CheckForWin
+ 
+ End If
+Exit Sub
+errhandler:
+   MsgBox Move
+
+End Sub
+
